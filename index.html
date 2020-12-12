@@ -1,0 +1,213 @@
+<!DOCTYPE html><html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Vue</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.min.js"></script>
+	<style>
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+ 
+  cursor: pointer;
+}
+
+.button2 {background-color: #008CBA;} 
+.button3 {background-color: #f44336;} 
+.grid{
+	width: 20%;
+	padding: 1%;
+	float: left;
+}
+.grid{
+	background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 500px;
+    margin: 5px;
+}
+.grids{
+	width: 100%;
+  clear: both;
+}
+
+
+#myimage1.season1{
+background-image: url("images/image1.jpg");	
+}
+#myimage1.season2{
+background-image:  url("images/image2.jpg");	
+}
+
+#myimage2.season1{
+background-image: url("images/image3.jpg");	
+}
+#myimage2.season2{
+background-image:  url("images/image4.jpg");	
+}
+
+
+#myimage3.season1{
+background-image: url("images/image5.jpg");	
+}
+#myimage3.season2{
+background-image:  url("images/image6.jpg");	
+}
+
+#myimage4.season1{
+background-image: url("images/image7.jpg");	
+}
+#myimage4.season2{
+background-image:  url("images/image8.jpg");	
+}
+</style>
+		
+		
+	
+	</head>
+
+	<body >
+<div id="root">
+		     
+<h5>Mouse over to change image</h5>
+<div id="alliamges" class="grids">
+		<div class="grid" id="myimage1" v-bind:class="season" @mouseenter="season = season2" @mouseleave="season =season1"></div>
+		<div class="grid" id="myimage2" v-bind:class="season" @mouseenter="season = season2" @mouseleave="season =season1"></div>
+		<div class="grid" id="myimage3" v-bind:class="season" @mouseenter="season = season2" @mouseleave="season =season1"></div>
+		<div class="grid" id="myimage4" v-bind:class="season" @mouseenter="season = season2" @mouseleave="season =season1"></div>
+</div>
+<hr>
+
+
+<div style="width: 100%;" id="SwapAllButton">
+<input  @click="SwapAll" type="button" value="Swap All"  name="">
+</div>
+
+
+
+</div>
+	</body>
+  <script>
+
+
+
+var myimage1=new Vue({
+  el: '#myimage1',
+  data() {
+    return { 
+      season: "season1",        
+      season1: "season1",   
+      season2: "season2",      
+    }
+  }
+ 
+});
+
+var myimage2=new Vue({
+   el: '#myimage2',
+  data() {
+    return { 
+      season: "season1",        
+      season1: "season1",   
+      season2: "season2",      
+    }
+  }
+  });
+
+
+var myimage3=new Vue({
+   el: '#myimage3',
+  data() {
+    return { 
+      season: "season1",        
+      season1: "season1",   
+      season2: "season2",      
+    }
+  }
+  });
+
+
+var myimage4=new Vue({
+   el: '#myimage4',
+  data() {
+    return { 
+      season: "season1",        
+      season1: "season1",   
+      season2: "season2",      
+    }
+  }
+  });
+
+
+
+new Vue({
+  el: '#SwapAllButton',
+
+  data: {
+    season: 'season'
+  },
+
+  methods: {
+    SwapAll: function() {
+        if(myimage1.season=='season1') 
+        {
+        myimage1.season="season2";
+        }else
+        {
+         myimage1.season="season1"; 
+        }
+
+        if(myimage2.season=='season1') 
+        {
+        myimage2.season="season2";
+        }else
+        {
+         myimage2.season="season1"; 
+        }
+
+
+        if(myimage3.season=='season1') 
+        {
+        myimage3.season="season2";
+        }else
+        {
+         myimage3.season="season1"; 
+        }
+
+        if(myimage4.season=='season1') 
+        {
+        myimage4.season="season2";
+        }else
+        {
+         myimage4.season="season1"; 
+        }
+
+      
+      // some code to filter users
+    }
+  }
+});
+
+
+
+
+
+  new Vue({
+  el: '#example-2',
+  methods: {
+    say: function (msg) {
+      alert(msg)
+    }
+  }
+});
+</script>
+</html>
